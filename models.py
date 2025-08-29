@@ -5,6 +5,10 @@ class Supervisor:
         self.phone_number = phone_number
         self.__is_logged_in = False
 
+    @property
+    def logged_in(self):
+        return self.__is_logged_in
+
     @classmethod
     def sample(cls):
         return cls("yasin", "12344")
