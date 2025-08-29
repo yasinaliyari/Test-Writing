@@ -3,6 +3,9 @@ from models import Supervisor
 
 
 class SupervisorTestCase(unittest.TestCase):
+    def setUp(self):
+        self.supervisor = Supervisor.login("yasin", "1234")
+
     def test_all_data(self):
         instance = Supervisor.sample()
         self.assertIsInstance(
