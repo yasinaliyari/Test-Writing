@@ -3,7 +3,14 @@ class Supervisor:
         self.username = username
         self.password = password
         self.phone_number = phone_number
+        self.__is_logged_in = False
 
     @classmethod
     def sample(cls):
         return cls("yasin", "12344")
+
+    @classmethod
+    def login(cls, username, password):
+        supervisor = cls(username, password)
+        supervisor.__is_logged_in = True
+        return supervisor
