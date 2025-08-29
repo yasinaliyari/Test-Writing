@@ -14,3 +14,9 @@ class SupervisorTestCase(unittest.TestCase):
         self.assertTrue(hasattr(instance, "username"), "instance")
         self.assertTrue(hasattr(instance, "password"))
         self.assertTrue(hasattr(instance, "phone_number"))
+
+    def test_supervisor_protected_method(self):
+        self.assertIsNone(Supervisor.sample(), "Not raised on protected method")
+        self.assertListEqual(
+            self.supervisor.protected(), [1, 2, 3], "Protected data dont match"
+        )
