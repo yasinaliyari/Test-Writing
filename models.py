@@ -14,3 +14,8 @@ class Supervisor:
         supervisor = cls(username, password)
         supervisor.__is_logged_in = True
         return supervisor
+
+    def protected(self):
+        if self.__is_logged_in:
+            return [1, 2, 3]
+        return None
