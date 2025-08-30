@@ -23,3 +23,6 @@ class Supervisor:
         if self.__is_logged_in:
             return [1, 2, 3]
         return None
+
+    def publish(self):
+        print("Hello")
