@@ -1,16 +1,30 @@
-# This is a sample Python script.
-
-# Press Ctrl+F5 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+from locust import HttpUser, task, between, constant, constant_pacing, tag
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press F9 to toggle the breakpoint.
+class SampleUser(HttpUser):
+    wait_time = between(0.3, 0.5)
+    # wait_time = constant(0.7)
+    # wait_time = constant_pacing(1)
 
+    # def on_start(self):
+    #     pass
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+    @task
+    def get_detail(self):
+        pass
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    @task
+    def create_order(self):
+        pass
+
+    @task
+    def orders_list(self):
+        pass
+
+    @tag("test_network")
+    @task
+    def test_html(self):
+        self.client.get("/")
+
+    # def on_stop(self):
+    #     pass
